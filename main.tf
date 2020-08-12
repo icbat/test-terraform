@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "us-east-1"
+  region = "us-east-1"
 }
 
 data "aws_ami" "ubuntu" {
@@ -21,6 +21,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
+  subnet_id     = "subnet-020ffdd95e0a5f923"
 
   tags = {
     Name = "EvanTest"
